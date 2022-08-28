@@ -9,13 +9,6 @@ public class Audience {
   }
 
   public Long buy(Ticket ticket) {
-    if (bag.hasInvitation()) {
-      this.bag.setTicket(ticket);
-      return 0L;
-    } else {
-      this.bag.setTicket(ticket);
-      bag.minusAmount(ticket.getFee());
-      return ticket.getFee();
-    }
+    return bag.hold(ticket);
   }
 }
